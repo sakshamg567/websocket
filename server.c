@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <sys/types.h>
-#include <regex.h>
 #include <string.h>
 
 #define PORT 6969 // :)
@@ -174,8 +173,8 @@ int main()
          continue;
       }
 
-      pthread_t thread_id;
-      pthread_create(&thread_id, NULL, handle_client, (void *)client_fd);
-      pthread_detach(thread_id);
+      pthread_t tid;
+      pthread_create(&tid, NULL, handle_client, (void *)client_fd);
+      pthread_detach(tid);
    }
 }
